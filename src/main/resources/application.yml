@@ -1,0 +1,14 @@
+#@Bean
+#@ConditionalOnMissingBean(HiddenHttpMethodFilter.class)
+#容器中没有HiddenHttpMethodFilter.class时才能注入容器
+#优先以自己配置的为主
+#@ConditionalOnProperty(prefix = "spring.mvc.hiddenmethod.filter", name = "enabled"， matchIfMissing = true)
+#若没有配置spring.mvc.hiddenmethod.filter，matchIfMissing = true默认关闭，所以需要在yml文件中配置，手动开启
+#public OrderedHiddenHttpMethodFilter hiddenHttpMethodFilter() {
+#return new OrderedHiddenHttpMethodFilter();}
+#在springboot中默认关闭Rest功能
+spring:
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
